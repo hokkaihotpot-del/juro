@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "juro"
+version = "1.0.0"
+description = "JURO - 透析患者向け食事管理アプリ バックエンド"
+authors = ["JURO Team"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115"
+uvicorn = {extras = ["standard"], version = "^0.34"}
+sqlalchemy = {extras = ["asyncio"], version = "^2.0"}
+asyncpg = "^0.30"
+alembic = "^1.14"
+pydantic-settings = "^2.7"
+python-jose = {extras = ["cryptography"], version = "^3.4"}
+passlib = {extras = ["bcrypt"], version = "^1.7"}
+httpx = "^0.28"
+beautifulsoup4 = "^4.13"
+redis = "^5.2"
+reportlab = "^4.2"
+slowapi = "^0.1"
+fugashi = "^1.4"
+unidic-lite = "^1.0"
+cryptography = "^44.0"
+python-multipart = "^0.0.20"
+aiosmtplib = "^3.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3"
+pytest-asyncio = "^0.24"
+httpx = "^0.28"
+pytest-cov = "^6.0"
+ruff = "^0.9"
+aiosqlite = "^0.20"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

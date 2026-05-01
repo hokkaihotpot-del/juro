@@ -1,0 +1,57 @@
+name: juro_app
+description: "JURO - 透析患者向け食事管理アプリ"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # 状態管理
+  flutter_bloc: ^8.1.6
+  bloc: ^8.1.4
+
+  # HTTP クライアント
+  dio: ^5.7.0
+
+  # ルーティング
+  go_router: ^14.6.2
+
+  # ローカルストレージ
+  shared_preferences: ^2.3.3
+  flutter_secure_storage: ^9.2.2
+
+  # 音声認識 (STT)
+  speech_to_text: ^7.0.0
+
+  # ローカル通知（週次レポートリマインダー）
+  flutter_local_notifications: ^18.0.1
+
+  # タイムゾーン
+  timezone: ^0.10.1
+
+  # アイコン
+  cupertino_icons: ^1.0.8
+
+  # ユーティリティ
+  intl: ^0.20.1
+  equatable: ^2.0.5
+  permission_handler: ^11.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  mocktail: ^1.0.4
+  bloc_test: ^9.1.7
+  http_mock_adapter: ^0.6.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/allergen_presets.json

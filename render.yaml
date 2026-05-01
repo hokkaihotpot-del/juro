@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: juro-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: juro-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.12.0
+
+  - type: web
+    name: juro-app
+    runtime: static
+    plan: free
+    buildCommand: flutter build web
+    staticPublishPath: ./build/web
+
+  - type: web
+    name: juro-db
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: POSTGRES_DB
+        value: juro
+      - key: POSTGRES_USER
+        value: juro
+      - key: POSTGRES_PASSWORD
+        generateValue: true
+
+databases:
+  - name: juro-db
+    plan: free
+    databaseName: juro
+    user: juro
