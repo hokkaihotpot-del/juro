@@ -1,7 +1,7 @@
 class Endpoints {
   Endpoints._();
 
-  static const baseUrl = 'http://localhost:8000';
+  static const baseUrl = 'https://juro-api.onrender.com';
 
   // Auth
   static const signup = '/v1/auth/signup';
